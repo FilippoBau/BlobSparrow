@@ -43,7 +43,7 @@ def download_blob_from_list(account_url, container_name, blob_names, local_folde
         except Exception as e:
             print(f"🏝️ Error downloading '{blob_name}'")    
 
-def download_blobs_from_container(account_url, container_name, local_folder):
+def download_blobs_from_container(account_url, container_name, local_folder, blob_file):
     try:
         blob_service_client = BlobServiceClient(account_url=account_url)
         container_client = blob_service_client.get_container_client(container_name)
@@ -52,14 +52,14 @@ def download_blobs_from_container(account_url, container_name, local_folder):
         download_blob_from_list(account_url, container_name, blob_names, local_folder)
     except HttpResponseError as e:
         print("test")
-        handle_http_response_error(e, account_url, container_name, local_folder)
+        handle_http_response_error(e, account_url, container_name, local_folder,blob_file)
     except Exception as e:
         print(f"🌊 An error occurred: {str(e)}")            
 
 
-def handle_http_response_error(e, account_url, container_name, local_folder):
+def handle_http_response_error(e, account_url, container_name, local_folder,blob_file):
     if e.status_code == 403 and "AuthorizationFailure" in str(e):
-        blob_names = read_names_from_file("blob_name.txt")
+        blob_names = read_names_from_file(blob_file)
         download_blob_from_list(account_url, container_name, blob_names, local_folder)
     else:
         print(f"🌴 HTTP Error: {str(e)}")
