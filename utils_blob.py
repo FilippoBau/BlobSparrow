@@ -46,7 +46,6 @@ def download_blob_from_list(account_url, container_name, blob_names, local_folde
             found=True
         except Exception as e:
             os.remove(local_file_path)
-            #print(f"🏝️ Error downloading '{blob_name}'")   
     if not found:
         os.rmdir(local_folder_cont) 
 
@@ -69,4 +68,4 @@ def handle_http_response_error(e, account_url, container_name, local_folder,blob
         blob_names = read_names_from_file(blob_file)
         download_blob_from_list(account_url, container_name, blob_names, local_folder)
     else:
-        print(f"🌴  HTTP Error:{container_name} {str(e)} ")
+        print(f"🌴  HTTP Error:{str(e)}")
