@@ -69,4 +69,4 @@ def handle_http_response_error(e, account_url, container_name, local_folder,blob
         blob_names = read_names_from_file(blob_file)
         download_blob_from_list(account_url, container_name, blob_names, local_folder)
     else:
-        print(f"🌴 HTTP Error: {str(e)}")
+        print(f"🌴  HTTP Error:{container_name} {str(e)} ")
