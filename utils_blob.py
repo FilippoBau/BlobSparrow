@@ -34,14 +34,22 @@ def print_logo():
 
 
 def download_blob_from_list(account_url, container_name, blob_names, local_folder):
+    found=False
+    local_folder_cont = os.path.join(local_folder,container_name)
+    os.makedirs(local_folder_cont,exist_ok=True)
     for blob_name in blob_names:
         try:
             blob_client = BlobClient(account_url=account_url, container_name=container_name, blob_name=blob_name)
-            local_file_path = os.path.join(local_folder, blob_name)
+            local_file_path = os.path.join(local_folder_cont, blob_name)
             download_blob(blob_client, local_file_path)
             print(f"💰 '{blob_name}' successfully downloaded.")
+            found=True
         except Exception as e:
-            print(f"🏝️ Error downloading '{blob_name}'")    
+            os.remove(local_file_path)
+            #print(f"🏝️ Error downloading '{blob_name}'")   
+    if not found:
+        os.rmdir(local_folder_cont) 
+
 
 def download_blobs_from_container(account_url, container_name, local_folder, blob_file):
     try:
@@ -51,7 +59,6 @@ def download_blobs_from_container(account_url, container_name, local_folder, blo
         blob_names = [blob.name for blob in blobs_list]
         download_blob_from_list(account_url, container_name, blob_names, local_folder)
     except HttpResponseError as e:
-        print("test")
         handle_http_response_error(e, account_url, container_name, local_folder,blob_file)
     except Exception as e:
         print(f"🌊 An error occurred: {str(e)}")            

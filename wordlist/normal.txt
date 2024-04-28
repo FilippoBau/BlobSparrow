@@ -1,3 +1,4 @@
+xxx.txt
 images
 css
 LC_MESSAGES

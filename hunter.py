@@ -22,7 +22,7 @@ def main():
     else:
         blob_file = args.w
 
-    os.makedirs(args.l, exist_ok=True)
+    os.makedirs(args.l,exist_ok=True)
     print_logo()
     print(blob_file)
     print("🦜 Welcome! Setting sail to plunder Azure blobs...")
@@ -34,6 +34,7 @@ def main():
 
     with ThreadPoolExecutor(max_workers=5) as executor:
         for name in names:
+            print(name)
             executor.submit(download_from_container, args.a, name, args.l, blob_file)
 
     print("🦜 All plundered blobs safely stowed away!")
