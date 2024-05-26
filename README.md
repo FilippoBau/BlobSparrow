@@ -1,7 +1,3 @@
-- aggiungere lista blob https://github.com/emadshanab/WordLists-20111129/blob/master/Filenames_or_Directories_All.wordlist
-- aggiungere lista container https://github.com/koaj/aws-s3-bucket-wordlist/blob/master/list.txt
-- creare documentazione
-
 # BlobSparrow
 
 BlobSparrow is a tool designed to hunt and download blobs from Azure storage with anonymous access enabled. It provides a straightforward way to download blobs using a wordlist for blob names.
@@ -73,3 +69,10 @@ python blob_hunter.py -a <storage_account_url> [-c <container_name>] [-l <local_
 - `utils_blob.py`: Utility functions for downloading blobs and printing the logo.
 - `wordlist/normal.txt`: Default wordlist for blob names.
 - `container_names.txt`: List of container names to use if no container name is provided.
+
+## Credits
+
+The lists of container names and blob names are from:
+
+- https://github.com/emadshanab/WordLists-20111129/blob/master/Filenames_or_Directories_All.wordlist
+- https://github.com/koaj/aws-s3-bucket-wordlist/blob/master/list.txt
