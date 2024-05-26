@@ -1,5 +1,7 @@
 # BlobSparrow
 
+![logo](./logo.png)
+
 BlobSparrow is a tool designed to hunt and download blobs from Azure storage with anonymous access enabled. It provides a straightforward way to download blobs using a wordlist for blob names.
 
 ## Features
