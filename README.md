@@ -20,8 +20,8 @@ BlobSparrow is a tool designed to hunt and download blobs from Azure storage wit
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/blob-hunter.git
-   cd blob-hunter
+   git clone https://github.com/yourusername/BlobSparrow.git
+   cd BlobSparrow
    ```
 
 2. Install the required dependencies:
@@ -33,7 +33,7 @@ BlobSparrow is a tool designed to hunt and download blobs from Azure storage wit
 ## Usage
 
 ```bash
-python blob_hunter.py -a <storage_account_url> [-c <container_name>] [-l <local_path>] [-w <wordlist>]
+python hunter.py -a <storage_account_url> [-c <container_name>] [-l <local_path>] [-w <wordlist>]
 ```
 
 ### Arguments
@@ -48,24 +48,24 @@ python blob_hunter.py -a <storage_account_url> [-c <container_name>] [-l <local_
 1. Download blobs from a specific container to the default path:
 
    ```bash
-   python blob_hunter.py -a https://mystorageaccount.blob.core.windows.net -c mycontainer
+   python hunter.py -a https://mystorageaccount.blob.core.windows.net -c mycontainer
    ```
 
 2. Download blobs from a list of containers to a specified path using a custom wordlist:
 
    ```bash
-   python blob_hunter.py -a https://mystorageaccount.blob.core.windows.net -l ./myloot -w ./mywordlist.txt
+   python hunter.py -a https://mystorageaccount.blob.core.windows.net -l ./myloot -w ./mywordlist.txt
    ```
 
 3. Download blobs using a predefined "crazy" wordlist:
 
    ```bash
-   python blob_hunter.py -a https://mystorageaccount.blob.core.windows.net -w crazy
+   python hunter.py -a https://mystorageaccount.blob.core.windows.net -w crazy
    ```
 
 ## File Structure
 
-- `blob_hunter.py`: Main script to run the Blob Hunter tool.
+- `hunter.py`: Main script to run the Blob Hunter tool.
 - `utils_blob.py`: Utility functions for downloading blobs and printing the logo.
 - `wordlist/normal.txt`: Default wordlist for blob names.
 - `container_names.txt`: List of container names to use if no container name is provided.
