@@ -15,12 +15,8 @@ def main():
 
     args = parser.parse_args()
 
-    if args.w == "crazy": 
-        blob_file = "./wordlist/crazy.txt"
-    elif args.w == "insane":
-        blob_file = "./wordlist/insane.txt"
-    else:
-        blob_file = args.w
+
+    blob_file = args.w
 
     os.makedirs(args.l,exist_ok=True)
     print_logo()
