@@ -9,10 +9,10 @@ def read_names_from_file(file_path):
             names = [line.strip() for line in file if line.strip()]
         return names
     except FileNotFoundError:
-        print(f"Errore: Il file '{file_path}' non è stato trovato.")
+        print(f"Error: file '{file_path}' not found.")
         return []
     except Exception as e:
-        print(f"Errore durante la lettura del file '{file_path}': {e}")
+        print(f"Error while reading the file '{file_path}': {e}")
         return []
     
 def download_blob(blob_client, local_file_path):
